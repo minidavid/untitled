@@ -23,18 +23,18 @@ class MyApp extends StatelessWidget {
           backgroundColor: Color.fromARGB(255, 176, 233, 110),
          ),
 
-        //fix it to the screen
-        body:SafeArea(
 
           //add background color to body
-          child: DecoratedBox(
+          body: DecoratedBox(
+              decoration: BoxDecoration(color: Color(0xffb1ec6f)),
 
-            decoration: BoxDecoration(color: Color(0xffb1ec6f)),
+          child:SafeArea(
+
 
             //add padding to text 
             child: Padding(
 
-              padding:EdgeInsetsGeometry.all(15),
+              padding:EdgeInsets.all(15),
   
               //column hosting multiple text
               child: Column(mainAxisAlignment: MainAxisAlignment.end,
@@ -82,10 +82,11 @@ class MyApp extends StatelessWidget {
                     ),
 
                     Padding(
-                      padding: EdgeInsetsGeometry.only(left: 3.0),
+                      padding: EdgeInsets.only(left: 3.0),
                         child: TextButton(
                           onPressed: (){
                             Navigator.push(context, MaterialPageRoute(builder: (context) => Login()));
+                            print("Check");
                           },
 
                           style: ButtonStyle(backgroundColor: WidgetStatePropertyAll(Colors.transparent),
