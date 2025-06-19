@@ -28,99 +28,109 @@ class Home extends StatelessWidget {
       body: Column(
 
         children: [
-          const Text("Welcome Back!"),
-          const Text("Wallet Balance"),
-          Text("\$ ${showAmountAsString(17453.22)}"),
-
-          Row(
-            children: [
-              const Text("Cards"),
-              Container(
-
-                width: 40,
-                height: 40,
-
-                decoration: BoxDecoration(
-
-                    borderRadius: BorderRadius.circular(20),
-                      color: Colors.green,
-                      border: Border.all(color: Colors.black),
-                    ),
-
-                    child: IconButton(
-                      onPressed: (){
-                      },
-
-                      icon: Icon(
-                        Icons.add_circle_outline,
-                      ),
-
-              ),
-              
-
-
-              
-
-
-              ),
-          ],
+          Padding(
+            padding: const EdgeInsets.only(top: 40.0),
+            
+            child: const Text("Welcome Back!", style: TextStyle(fontSize: 32),),
           ),
 
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
+
+          Padding(
+            padding: const EdgeInsets.only(top: 10.0),
+          
+            child: const Text("Wallet Balance"),
+          ),
+
+          Text("\$ ${showAmountAsString(17453.22)}"),
+
+          Padding(
+            padding: const EdgeInsets.only(top: 10.0),
+            child: Row(
+              children: [
+                const Text("Cards"),
+                
+                Container(
               
-                  TextButton.icon(
-
-                    onPressed: () {},
-                    icon: const Icon(Icons.alarm,
-                      color: Color(0xff89c069),
-                    ),
-                    label: const Text("Send",
-
-                      style: TextStyle(
-                        color: Color(0xffc1f7a3),
+                  width: 40,
+                  height: 40,
+            
+                      child: IconButton(
+                        onPressed: (){
+                        },
+            
+                        icon: Icon(
+                          Icons.add_circle,
+                          color: Colors.green,
+                        ),
+            
                       ),
+                
+                ),
+              ],
+            ),
+          ),
 
-                    ),
-
-                    style: ButtonStyle(
-                      backgroundColor: WidgetStateProperty.all(Color(0xff154618)),
-                    ),
-
-                  ),
-
-
-                  TextButton.icon(
-
-                    onPressed: () {},
-                    icon: const Icon(Icons.alarm),
-                    
+          Padding(
+            padding: const EdgeInsets.only(top: 30.0, bottom: 30.0),
+            
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                
+                    TextButton.icon(
+            
+                      onPressed: () {},
+                      
+                      icon: const Icon(Icons.alarm,
+                        color: Color(0xff89c069),
+                      ),
+                      
+                      label: const Text("Send",
+            
+                        style: TextStyle(
+                          color: Color(0xffc1f7a3),
+                        ),
+            
+                      ),
+            
                       style: ButtonStyle(
-                        backgroundColor: WidgetStateProperty.all(Color(0xffb2ec75),
+                        backgroundColor: WidgetStateProperty.all(Color(0xff154618)),
                       ),
-
+            
                     ),
-                    
-                    label: const Text("Request",
-
-                      style: TextStyle(
-                        color: Color(0xff11480c),
+            
+            
+                    TextButton.icon(
+            
+                      onPressed: () {},
+                      icon: const Icon(Icons.alarm),
+                      
+                        style: ButtonStyle(
+                          backgroundColor: WidgetStateProperty.all(Color(0xffb2ec75),
+                        ),
+            
                       ),
-
+                      
+                      label: const Text("Request",
+            
+                        style: TextStyle(
+                          color: Color(0xff11480c),
+                        ),
+            
+                      ),
+            
                     ),
-
-                  ),
-
-                  IconButton(onPressed: () {},
-                    icon: Icon(Icons.ads_click),
-                    style: ButtonStyle(
-                      backgroundColor: WidgetStateProperty.all(Color(0xfffdfff9)),
+            
+                    IconButton(onPressed: () {},
+                      icon: Icon(Icons.ads_click),
+                      style: ButtonStyle(
+                        backgroundColor: WidgetStateProperty.all(Color(0xfffdfff9)),
+                      ),
                     ),
-                  ),
-
-
-            ],
+            
+            
+              ],
+            ),
           ),
         //  Expanded(
         //     child: ListView(

@@ -14,7 +14,7 @@ class _MainPageState extends State<MainPage> {
 
     String name = "Jonathan";
 
-    List<Widget> widgetList =[
+    List<Widget> widgetList = [
       Home(),
       Analytics(),
       Text("Home"),
