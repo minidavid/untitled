@@ -11,6 +11,8 @@ class Analytics extends StatelessWidget {
   Widget build(BuildContext context) {
 
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
+
+    //data
     int index;
     List<String> days = [];
     
@@ -22,6 +24,9 @@ class Analytics extends StatelessWidget {
     days.insert(5, "Saturday");
     days.insert(6, "Sunday");
 
+    List<Map<String,dynamic>> barGroupData = [{"x" : 0, "y" : 10.0}, {"x" : 5, "y" : 20.0}, {"x" : 10, "y" : 5.0}, {"x" : 15, "y" : 20.0}, {"x" : 20, "y" : 10.0}];
+    List<Map<String,dynamic>> listViewData = [{"x" : 0, "y" : 5.0}, {"x" : 10, "y" : 10.0}, {"x" : 15, "y" : 5.0}, {"x" : 20, "y" : 20.0}, {"x" : 30, "y" : 25.0}, {"x" : 40, "y" : 5.0}];
+ 
     return Scaffold(
 
       body: SingleChildScrollView(
@@ -93,41 +98,24 @@ class Analytics extends StatelessWidget {
                             child: BarChart(
             
                               BarChartData(
-                                barGroups: [
-            
-                                  BarChartGroupData(
-                                    x: 0,
-                                    barRods: [
-                                      BarChartRodData(toY: 10),
+                                barGroups:
+                                  
+                                  //map
+                                  barGroupData.map((e) {
+                                    return
+                                     BarChartGroupData(
+                                          x: e["x"],
+                                          barRods: [
+                                          BarChartRodData(toY: e["y"]),
                                     ],
-                                  ),
+                                  );
+                                  },).toList()
+
             
-                                  BarChartGroupData(
-                                    x: 5,
-                                    barRods: [
-                                      BarChartRodData(toY: 2),
-                                    ],
-                                  ),
-            
-            
-                                  BarChartGroupData(
-                                    x: 10,
-                                    barRods: [
-                                      BarChartRodData(toY: 20),
-                                    ],
-                                  ),
-            
-                                  BarChartGroupData(
-                                    x: 15,
-                                    barRods: [
-                                      BarChartRodData(toY: 30),
-                                    ],
-                                  ),
-                                 
+                                 ,
             
             
                           
-                                ],
                   
                                 titlesData:FlTitlesData(
                                   
@@ -147,7 +135,7 @@ class Analytics extends StatelessWidget {
                                     sideTitles: SideTitles(showTitles: false),
                                   ),
 
-                                ) 
+                                ),
 
                               ),
                             ),
@@ -226,24 +214,21 @@ class Analytics extends StatelessWidget {
                   minY: 0,
                   maxY: 60,
             
-                  lineBarsData: [
-                    LineChartBarData(
-                      spots: [
-                        FlSpot(0, 0),
-                        FlSpot(5, 20),
-                        FlSpot(10, 10),
-                        FlSpot(20,40),
-                        FlSpot(30,40),
-                        FlSpot(35,0),
-                        FlSpot(40,20),
-                      ],
-            
-                      color: Colors.black,
-                      barWidth: 6,
-                      isCurved: true, 
-                    ),
-            
-                  ],
+                  lineBarsData: 
+
+                      listViewData.map((e){ 
+                        
+                        return LineChartBarData(
+                            spots: [
+                              FlSpot(e["x"],e["y"]),
+                            ],
+
+                            color: Colors.black,
+                          );
+                        }
+                      ).toList(),
+                      
+
             
                   titlesData: FlTitlesData(
             
@@ -268,6 +253,7 @@ class Analytics extends StatelessWidget {
             
                         getTitlesWidget: (value,meta)
                         {
+                          
                           index = value.toInt();
 
                           if (index< 0 || index >= days.length){
@@ -275,7 +261,7 @@ class Analytics extends StatelessWidget {
                           }
 
                           return Padding(
-                            padding: EdgeInsets.only(left: index.toDouble()*130),
+                            padding: EdgeInsets.only(left: index.toDouble()*140),
                             child: Text(days[index]),
                           );
 

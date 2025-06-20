@@ -31,7 +31,7 @@ class _LoginState extends State<Login> {
 
 
       body: Column(
-        
+
         children: [
           Container(
             color: Color.fromARGB(255, 176, 233, 110),
@@ -95,12 +95,19 @@ class _LoginState extends State<Login> {
 
                               child: Padding(
                                 padding: EdgeInsets.all(2),
-                                child: FormBuilderTextField(name:"email" ,
-                                textAlign: TextAlign.center,
-                                scrollPadding: EdgeInsets.all(50),
+                                
+                                child: FormBuilderTextField(
+                                  name:"email" ,
+                                
+                                  textAlign: TextAlign.center,
+                                  scrollPadding: EdgeInsets.all(50),
+
                                 decoration: const InputDecoration(labelText: 'example@email.com',
+                                
                                   border: const UnderlineInputBorder(),
                                   filled: true,
+                                  prefixIcon: Icon(Icons.email),
+                               
                                 ),
                                 // validator: (value) {
                                 //   if (value==null || value.isEmpty)
@@ -149,15 +156,19 @@ class _LoginState extends State<Login> {
                               children: [
                                 
                               
-                                FormBuilderTextField(name:"password" ,
-                            textAlign: TextAlign.center,
-                            decoration: const InputDecoration(labelText: 'Password',
-                                border: const UnderlineInputBorder(),
-                                filled: true,
-                            
-                            ),
-                            scrollPadding: EdgeInsets.all(200),
-                            obscureText: _obscureText,
+                              FormBuilderTextField(name:"password" ,
+                              textAlign: TextAlign.center,
+                              decoration: const InputDecoration
+                              (
+                                  labelText: 'Password',
+                                  border: const UnderlineInputBorder(),
+                                  filled: true,
+                                  prefixIcon: Icon(Icons.password),
+
+                              ),
+                              
+                              scrollPadding: EdgeInsets.all(200),
+                              obscureText: _obscureText,
 
                               validator: FormBuilderValidators.compose(
                                 [
@@ -227,24 +238,27 @@ class _LoginState extends State<Login> {
                           ),
                           
 
-                              ElevatedButton(
-                                onPressed: (){
-                                    // print(formKey.currentState!.value);
-                                  if (formKey.currentState!.saveAndValidate()){
-                                    print("from login button >>${formKey.currentState!.value}");
+                              Padding(
+                                padding: const EdgeInsets.only(left:8.0),
 
-                                   Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => MainPage()));
-                                  }
+                                child: ElevatedButton(
+                                  onPressed: (){
+                                      // print(formKey.currentState!.value);
+                                    if (formKey.currentState!.saveAndValidate()){
+                                      print("from login button >>${formKey.currentState!.value}");
+                                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => MainPage()));
+                                    }
 
-                                },
+                                  },
+                                  
+                                  style: ElevatedButton.styleFrom(
+                                    foregroundColor: Colors.black,
+                                    minimumSize: Size(double.infinity, 50),
+                                  ),
                                 
-                                style: ElevatedButton.styleFrom(
-                                  foregroundColor: Colors.black,
-                                  minimumSize: Size(double.infinity, 50),
+                                  child: const Text("Login"),
+                                
                                 ),
-
-                                child: const Text("Login"),
-
                               ),
 
                             Row(
@@ -276,8 +290,8 @@ class _LoginState extends State<Login> {
 
                         ],
 
-                    ),
                       ),
+                    ),
                   ],
                 ),
               ),

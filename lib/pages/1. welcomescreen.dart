@@ -1,5 +1,6 @@
 //import 'package:flutter/cupertino.dart'; iOS
 import 'package:finance_app/pages/2.%20loginscreen.dart';
+import 'package:finance_app/pages/2.2%20Signup.dart';
 import 'package:flutter/material.dart';
 
 class MyApp extends StatelessWidget {
@@ -11,12 +12,13 @@ class MyApp extends StatelessWidget {
     return Scaffold(
          appBar: AppBar(
           
-          leading: Image.asset('assets/image.png',
-          fit: BoxFit.fill,
-          alignment: Alignment.bottomCenter,
-          //color: Color(0xffb1ec6f),
-          //color: Color(0xff134517),
-          //colorBlendMode: BlendMode.multiply,
+          leading: Image.asset(
+            'assets/image.png',
+            fit: BoxFit.fill,
+            alignment: Alignment.bottomCenter,
+            //color: Color(0xffb1ec6f),
+            //color: Color(0xff134517),
+            //colorBlendMode: BlendMode.multiply,
           ),
 
           //title: const Text('Real'),
@@ -27,6 +29,7 @@ class MyApp extends StatelessWidget {
           //add background color to body
           body: DecoratedBox(
               decoration: BoxDecoration(color: Color(0xffb1ec6f)),
+
 
           child:SafeArea(
 
@@ -58,6 +61,7 @@ class MyApp extends StatelessWidget {
                   onPressed: ()
                   {
                     print("Button Pressed");
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => SignIn(),),);
                   },
 
                   style: ButtonStyle(

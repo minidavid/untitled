@@ -1,6 +1,10 @@
+import 'package:finance_app/pages/3.5%20Profile.dart';
 import 'package:flutter/material.dart';
 import 'package:finance_app/pages/3.1%20MainPage%20Home.dart';
 import 'package:finance_app/pages/3.2%20Analytics.dart';
+
+  String name = "Jonathan";
+
 
 
 class MainPage extends StatefulWidget {
@@ -12,14 +16,13 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
 
-    String name = "Jonathan";
 
     List<Widget> widgetList = [
       Home(),
       Analytics(),
       Text("Home"),
       Text("Next"),
-      Text("Home")
+      Profile(),
     ];
 
     //----NAVIGATION BAR-----\\
@@ -64,11 +67,11 @@ class _MainPageState extends State<MainPage> {
         currentIndex: _currentIndex,
 
         items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: "home", backgroundColor: Colors.black),
-          BottomNavigationBarItem(icon: Icon(Icons.analytics), label: "analytics", backgroundColor: Colors.black),
-          BottomNavigationBarItem(icon: Icon(Icons.square), label: "square", backgroundColor: Colors.black),
-          BottomNavigationBarItem(icon: Icon(Icons.card_giftcard), label: "card", backgroundColor: Colors.black),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: "person", backgroundColor: Colors.black),
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home", backgroundColor: Colors.black),
+          BottomNavigationBarItem(icon: Icon(Icons.analytics), label: "Analytics", backgroundColor: Colors.black),
+          BottomNavigationBarItem(icon: Icon(Icons.square), label: "Square", backgroundColor: Colors.black),
+          BottomNavigationBarItem(icon: Icon(Icons.card_giftcard), label: "Card", backgroundColor: Colors.black),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile", backgroundColor: Colors.black),
         ],
         
       ),

@@ -6,6 +6,7 @@ import 'package:finance_app/pages/2.%20loginscreen.dart';
 void main(){
   runApp(
    MaterialApp(
+    title: 'Savings App',
     initialRoute: '/',
 
     routes: {
